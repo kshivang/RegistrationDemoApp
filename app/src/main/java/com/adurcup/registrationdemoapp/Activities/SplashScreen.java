@@ -1,4 +1,4 @@
-package com.adurcup.registrationdemoapp.Activities;
+package com.adurcup.registrationdemoapp.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,9 +9,12 @@ import com.adurcup.registrationdemoapp.R;
 
 /**
  * Created by kshivang on 08/04/16.
+ *
+ * This is Full Screen Activity which invokes when application starts.
  */
 public class SplashScreen extends AppCompatActivity {
 
+    //this parameter can be changed to change active time for the activity
     private static final int AUTO_HIDE_DELAY_MILLIS = 1000 * 2;
 
     private final Handler mHideHandler = new Handler();

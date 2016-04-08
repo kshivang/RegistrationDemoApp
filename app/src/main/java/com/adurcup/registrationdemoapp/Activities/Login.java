@@ -1,4 +1,4 @@
-package com.adurcup.registrationdemoapp.Activities;
+package com.adurcup.registrationdemoapp.activities;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -11,8 +11,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.adurcup.registrationdemoapp.CotentProvider.User;
-import com.adurcup.registrationdemoapp.CotentProvider.UserLocalStore;
+import com.adurcup.registrationdemoapp.cotentProvider.User;
+import com.adurcup.registrationdemoapp.cotentProvider.UserLocalStore;
 import com.adurcup.registrationdemoapp.R;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -30,6 +30,9 @@ import java.util.Map;
 
 /**
  * Created by kshivang on 08/04/16.
+ *
+ * This activity first check for if User is already logged in by checking in content provider
+ * Otherwise User can login by authenticating credentials.
  */
 public class Login extends AppCompatActivity {
 

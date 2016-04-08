@@ -1,4 +1,4 @@
-package com.adurcup.registrationdemoapp.Activities;
+package com.adurcup.registrationdemoapp.activities;
 
 import android.app.DialogFragment;
 import android.app.FragmentManager;
@@ -19,7 +19,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-import com.adurcup.registrationdemoapp.CotentProvider.UserLocalStore;
+import com.adurcup.registrationdemoapp.cotentProvider.UserLocalStore;
 import com.adurcup.registrationdemoapp.R;
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
@@ -42,6 +42,16 @@ import java.util.Map;
 
 /**
  * Created by kshivang on 08/04/16.
+ *
+ * This Activity checks for whether mobile no. exist on server
+ * while otp check
+ *
+ * If this Activity is called for Registration purpose, if mobile no.
+ * already exist it will prompt to change password
+ *
+ * If this Activity is called for changing password purpose, if mobile no.
+ * already exist it will prompt to register first
+ *
  */
 public class MobileVerification extends AppCompatActivity {
 
@@ -90,7 +100,7 @@ public class MobileVerification extends AppCompatActivity {
                         mobileText = mobileText.substring(3);
                     }
                     progressBar.setVisibility(View.VISIBLE);
-                    new RequestBackground().execute();
+                    new UserExistCheck().execute();
 
                 } else {
                     switch (mobileText.length()){
@@ -114,7 +124,7 @@ public class MobileVerification extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
-    public class AsyncHttpTask extends AsyncTask<String, Void, Integer> {
+    public class RequestToSendOtp extends AsyncTask<String, Void, Integer> {
 
 
         String temp;
@@ -181,7 +191,7 @@ public class MobileVerification extends AppCompatActivity {
 
         }
     }
-    public class RequestBackground extends AsyncTask<Void,Void,Void> {
+    public class UserExistCheck extends AsyncTask<Void,Void,Void> {
 
         final UserLocalStore userLocalStore = new UserLocalStore(getApplicationContext());
 
@@ -207,7 +217,7 @@ public class MobileVerification extends AppCompatActivity {
                                     break;
                                 case "true":
                                     userLocalStore.setMobileNumber(mobileText, "Register");
-                                    new AsyncHttpTask().execute(getString(R.string.otp_url) + mobileText + "&" + getString(R.string.otp_key));
+                                    new RequestToSendOtp().execute(getString(R.string.otp_url) + mobileText + "&" + getString(R.string.otp_key));
                                     break;
                                 default:
                                     progressBar.setVisibility(View.GONE);
@@ -217,7 +227,7 @@ public class MobileVerification extends AppCompatActivity {
                             switch (error) {
                                 case "false":
                                     userLocalStore.setMobileNumber(mobileText, "Forgot password");
-                                    new AsyncHttpTask().execute(getString(R.string.otp_url) + mobileText + "&" + getString(R.string.otp_key));
+                                    new RequestToSendOtp().execute(getString(R.string.otp_url) + mobileText + "&" + getString(R.string.otp_key));
                                     break;
                                 case "true":
                                     userLocalStore.setMobileNumber(mobileText, "Register");
@@ -292,7 +302,7 @@ public class MobileVerification extends AppCompatActivity {
                 register.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        new AsyncHttpTask().execute(getString(R.string.otp_url) + mobileText + "&" + getString(R.string.otp_key));
+                        new RequestToSendOtp().execute(getString(R.string.otp_url) + mobileText + "&" + getString(R.string.otp_key));
                     }
                 });
 
@@ -304,7 +314,7 @@ public class MobileVerification extends AppCompatActivity {
                 changePassword.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        new AsyncHttpTask().execute(getString(R.string.otp_url) + mobileText + "&" + getString(R.string.otp_key));
+                        new RequestToSendOtp().execute(getString(R.string.otp_url) + mobileText + "&" + getString(R.string.otp_key));
                     }
                 });
             }
@@ -321,8 +331,7 @@ public class MobileVerification extends AppCompatActivity {
             return rootView;
         }
 
-        public class AsyncHttpTask extends AsyncTask<String, Void, Integer> {
-
+        public class RequestToSendOtp extends AsyncTask<String, Void, Integer> {
 
             String temp;
 

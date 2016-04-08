@@ -1,7 +1,9 @@
-package com.adurcup.registrationdemoapp.CotentProvider;
+package com.adurcup.registrationdemoapp.cotentProvider;
 
 /**
  * Created by kshivang on 08/04/16.
+ *
+ * This is Constructor for User Credential response
  */
 public class User {
     public String apiKey, name, email, contact;

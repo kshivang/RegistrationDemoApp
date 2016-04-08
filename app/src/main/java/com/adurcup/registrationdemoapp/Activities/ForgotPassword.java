@@ -1,4 +1,4 @@
-package com.adurcup.registrationdemoapp.Activities;
+package com.adurcup.registrationdemoapp.activities;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.adurcup.registrationdemoapp.CotentProvider.UserLocalStore;
+import com.adurcup.registrationdemoapp.cotentProvider.UserLocalStore;
 import com.adurcup.registrationdemoapp.R;
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
@@ -33,6 +33,8 @@ import java.util.Map;
 
 /**
  * Created by kshivang on 08/04/16.
+ *
+ * Simple change password activity invoke after OTP verification
  */
 public class ForgotPassword extends AppCompatActivity {
 

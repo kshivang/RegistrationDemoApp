@@ -1,4 +1,4 @@
-package com.adurcup.registrationdemoapp.Activities;
+package com.adurcup.registrationdemoapp.activities;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -28,6 +28,8 @@ import java.util.Map;
 
 /**
  * Created by kshivang on 08/04/16.
+ *
+ * Simple Register Activity Invoke after OTP verification
  */
 public class Register extends AppCompatActivity {
 

@@ -1,4 +1,4 @@
-package com.adurcup.registrationdemoapp.BroadcastReceivers;
+package com.adurcup.registrationdemoapp.broadcastReceivers;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -9,10 +9,16 @@ import android.telephony.SmsMessage;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.adurcup.registrationdemoapp.Servies.OtpVerificationService;
+import com.adurcup.registrationdemoapp.services.OtpVerificationService;
 
 /**
  * Created by kshivang on 08/04/16.
+ *
+ * this receiver automatically detect message with sender name with "ADURCP"
+ * generally message come with sender name "LM-ADURCP" or "DM-ADURCP"
+ *
+ * then search for "is " regex code and then start reading OTP
+ * then invoke OTPverificationservice
  */
 public class SmsReceiver extends BroadcastReceiver {
     private static final String TAG = SmsReceiver.class.getSimpleName();
@@ -27,6 +33,9 @@ public class SmsReceiver extends BroadcastReceiver {
                 java.lang.Object[] pdusObj = (java.lang.Object[])bundle.get("pdus");
                 for (java.lang.Object aPdusObj : pdusObj) {
                     SmsMessage currentMessage;
+                    /**
+                     * SmsMessage.createFromPdu(byte[], format) is new change in Marshmallow
+                     */
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         String format = bundle.getString("format");
                         currentMessage = SmsMessage.createFromPdu((byte[])aPdusObj, format);

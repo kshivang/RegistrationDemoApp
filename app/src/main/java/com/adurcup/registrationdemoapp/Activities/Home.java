@@ -1,4 +1,4 @@
-package com.adurcup.registrationdemoapp.Activities;
+package com.adurcup.registrationdemoapp.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.adurcup.registrationdemoapp.CotentProvider.User;
-import com.adurcup.registrationdemoapp.CotentProvider.UserLocalStore;
+import com.adurcup.registrationdemoapp.cotentProvider.User;
+import com.adurcup.registrationdemoapp.cotentProvider.UserLocalStore;
 import com.adurcup.registrationdemoapp.R;
 
 /**
@@ -30,6 +30,7 @@ public class Home extends AppCompatActivity{
         ((TextView) findViewById(R.id.mobile_no)).setText("Mobile No. : " + user.contact);
 
         ((TextView) findViewById(R.id.api_key)).setText("Api Key : " + user.apiKey);
+
         Button logout = (Button) findViewById(R.id.logout);
         logout.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
         logout.setOnClickListener(new View.OnClickListener() {

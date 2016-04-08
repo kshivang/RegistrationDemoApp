@@ -1,10 +1,12 @@
-package com.adurcup.registrationdemoapp.CotentProvider;
+package com.adurcup.registrationdemoapp.cotentProvider;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 
 /**
  * Created by kshivang on 08/04/16.
+ *
+ * This is content provider to store User Credentials as well mobile no and navigation context while registration
  */
 public class UserLocalStore {
     private static final String KEY_IS_WAITING_FOR_SMS = "IsWaitingForSms";

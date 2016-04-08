@@ -1,4 +1,4 @@
-package com.adurcup.registrationdemoapp.App;
+package com.adurcup.registrationdemoapp.app;
 
 import android.app.Application;
 import android.text.TextUtils;
@@ -9,8 +9,12 @@ import com.android.volley.toolbox.Volley;
 
 /**
  * Created by kshivang on 08/04/16.
+ *
+ * This is used to make request which last after the application life
+ *
  */
 public class RegistrationDemoApp extends Application {
+
 
     public static final String TAG = RegistrationDemoApp.class
             .getSimpleName();
