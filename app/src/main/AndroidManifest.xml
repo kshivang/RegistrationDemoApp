@@ -8,24 +8,24 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".App.RegistrationDemoApp"
+        android:name=".app.RegistrationDemoApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <receiver android:name=".BroadcastReceivers.SmsReceiver">
+        <receiver android:name=".broadcastReceivers.SmsReceiver">
             <intent-filter android:priority="999">
                 <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
             </intent-filter>
         </receiver>
 
         <service
-            android:name=".Services.OtpVerificationService"
+            android:name=".services.OtpVerificationService"
             android:exported="false" />
-        <activity
 
-            android:name=".Activities.SplashScreen"
+        <activity
+            android:name=".activities.SplashScreen"
             android:label="@string/app_name"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -34,27 +34,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.Login"
+        <activity android:name=".activities.Login"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             />
-        <activity android:name=".Activities.ForgotPassword"
+        <activity android:name=".activities.ForgotPassword"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             />
-        <activity android:name=".Activities.Register"
+        <activity android:name=".activities.Register"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             />
-        <activity android:name=".Activities.Home"
+        <activity android:name=".activities.Home"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             />
-        <activity android:name=".Activities.OtpVerification"
+        <activity android:name=".activities.OtpVerification"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             />
-        <activity android:name=".Activities.MobileVerification"
+        <activity android:name=".activities.MobileVerification"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             />
