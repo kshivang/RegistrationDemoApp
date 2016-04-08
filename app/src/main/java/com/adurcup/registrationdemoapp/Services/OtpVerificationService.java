@@ -1,15 +1,15 @@
-package com.adurcup.registrationdemoapp.Servies;
+package com.adurcup.registrationdemoapp.services;
 
 import android.app.IntentService;
 import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.adurcup.registrationdemoapp.Activities.ForgotPassword;
-import com.adurcup.registrationdemoapp.Activities.OtpVerification;
-import com.adurcup.registrationdemoapp.Activities.Register;
-import com.adurcup.registrationdemoapp.App.RegistrationDemoApp;
-import com.adurcup.registrationdemoapp.CotentProvider.UserLocalStore;
+import com.adurcup.registrationdemoapp.activities.ForgotPassword;
+import com.adurcup.registrationdemoapp.activities.OtpVerification;
+import com.adurcup.registrationdemoapp.activities.Register;
+import com.adurcup.registrationdemoapp.app.RegistrationDemoApp;
+import com.adurcup.registrationdemoapp.cotentProvider.UserLocalStore;
 import com.adurcup.registrationdemoapp.R;
 import com.android.volley.Request;
 import com.android.volley.Response;
