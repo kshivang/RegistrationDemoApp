@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Status">
+        <item>Query About Product Specification</item>
+        <item>Slightly Different Product</item>
+        <item>other Specific</item>
+    </string-array>
+    <string-array name="Custom">
+        <item>Regarding adding product in List</item>
+        <item>Problem using app</item>
+        <item>Adding new product in my list</item>
+        <item>other Specific</item>
+    </string-array>
+    <string-array name="Timing">
+        <item>9am to 12am</item>
+        <item>12am to 3pm</item>
+        <item>3pm to 6pm</item>
+    </string-array>
+</resources>
